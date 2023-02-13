@@ -2,7 +2,7 @@
 ESP8266 using BME 280 Sensor with OLED display
 
 
-This is was writen program by Rui Santos.
+This was writen by Rui Santos.
 
 The complete project details at https://RandomNerdTutorials.com/visualize-esp32-esp8266-sensor-readings-from-anywhere/
 
