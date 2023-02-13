@@ -112,21 +112,9 @@ void loop() {
     Serial.print("httpRequestData: ");
     Serial.println(httpRequestData);
     
-    // You can comment the httpRequestData variable above
-    // then, use the httpRequestData variable below (for testing purposes without the BME280 sensor)
-    //String httpRequestData = "api_key=tPmAT5Ab3j7F9&value1=24.75&value2=49.54&value3=1005.14";
-
     // Send HTTP POST request
     int httpResponseCode = http.POST(httpRequestData);
      
-    // If you need an HTTP request with a content type: text/plain
-    //http.addHeader("Content-Type", "text/plain");
-    //int httpResponseCode = http.POST("Hello, World!");
-    
-    // If you need an HTTP request with a content type: application/json, use the following:
-    //http.addHeader("Content-Type", "application/json");
-    //int httpResponseCode = http.POST("{\"value1\":\"19\",\"value2\":\"67\",\"value3\":\"78\"}");
-    
     if (httpResponseCode>0) {
       Serial.print("HTTP Response code: ");
       Serial.println(httpResponseCode);
@@ -149,10 +137,10 @@ void loop() {
   display_info ();
 
   
-  
   //Send an HTTP POST request every 30 seconds
   delay(60000);  
 }
+
 
 
 void display_info () {
@@ -160,14 +148,10 @@ void display_info () {
   display.clearDisplay();
 
   display.print("Time: "); display.println(timeClient.getFormattedTime()); //display.print();
- 
   display.print("Temperature: "); display.print(bme.readTemperature()); display.println("  C");
-
   display.print("Humidity: "); display.print(bme.readHumidity()); display.println(" %");
-  
   display.print("Pressure: "); display.print(bme.readPressure() / 100.0F); display.println(" hPa");
-
-  Serial.println();
+  
   display.display();
   delay(1000);
 
